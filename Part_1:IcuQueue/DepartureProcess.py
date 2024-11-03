@@ -2,7 +2,6 @@ from ArrivalProcess import simulate_arrival_process
 import numpy as np
 import heapq
 
-np.random.seed(174)
 
 arrival_times, severity_level_list = simulate_arrival_process()
 average_length_of_stays = [3, 7, 15] # averagely, Mild - 3 days; Moderate - 7 days; Severe - 15 days.
