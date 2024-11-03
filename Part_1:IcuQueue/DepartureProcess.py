@@ -55,5 +55,7 @@ waiting_times = calculate_waiting_times()
 #print(len(waiting_times))
 
 # To resolve the in-consistency issue.
-def simultaneously_return(severity_level_list = severity_level_list, waiting_times = waiting_times): 
-    return severity_level_list, waiting_times
+def simultaneously_return(arrival_times = arrival_times, severity_level_list = severity_level_list, 
+                          start_times = start_times, departure_times = departure_times,
+                          waiting_times = waiting_times): 
+    return arrival_times, severity_level_list, start_times, departure_times, waiting_times

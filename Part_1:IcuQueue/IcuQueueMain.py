@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-severity_level_list, waiting_times = simultaneously_return()
+arrival_times, severity_level_list, start_times, departure_times, waiting_times = simultaneously_return()
 
 #print(len(severity_level_list))
 #print(len(waiting_times))
