@@ -12,7 +12,7 @@ import random
 arrival_times, severity_level_list, start_times, departure_times, waiting_times = simultaneously_return()
 #print(arrival_times)
 
-request_frequency = 2 # i.e. averagely, every patient request one service every two hours
+request_frequency = 2 # i.e. averagely, every patient request two service per hour
 number_of_care_givers = 50
 
 capacity = 100 # If you want to modify this parameter, please simultaneously modify 'capacity' in Part_1_IcuQueue/DepartureProcess.py
@@ -134,4 +134,4 @@ def simulate_service_process(request_frequency = request_frequency, capacity = c
     service_waiting_times = [x * 60 for x in service_waiting_times] # convert to minutes
     return service_waiting_times, severity_cor_waiting_times
 
-#print(simulate_service_process())
+print(simulate_service_process())
