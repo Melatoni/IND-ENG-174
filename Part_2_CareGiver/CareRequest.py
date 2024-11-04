@@ -121,7 +121,8 @@ def simulate_service_process(request_frequency = request_frequency, capacity = c
                 service_start_times[choice] = max(earliest_available_time, t)
             else:
                 service_start_times[choice] = t
-            service_end_times[choice] = service_start_times[choice] + service_time
+            service_end_times[choice] = min(service_start_times[choice] + service_time, departure_times[patient_request_service]) 
+            # if the patient is discharged from the hospital, the service is automatically terminated.
 
             index_list[choice] = patient_request_service
 
