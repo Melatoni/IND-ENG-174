@@ -10,7 +10,7 @@ import heapq
 
 arrival_times, severity_level_list = simulate_arrival_process()
 average_length_of_stays = [3, 7, 15] # averagely, Mild - 3 days; Moderate - 7 days; Severe - 15 days.
-capacity = 100
+capacity = 100 # If you want to modify this parameter, please simultaneously modify 'capacity' in Part_2_CareGiver/CareRequest.py
 
 # This function tracks the departure times of patients under the assumption of FIFO.
 def simulate_departure_process_FIFO(arrival_times = arrival_times, severity_level_list = severity_level_list, capacity = capacity):

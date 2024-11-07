@@ -56,16 +56,15 @@ def plot_discrete_severity_distribution(service_waiting_times = service_waiting_
 
 plot_discrete_severity_distribution()
 
-k = 0.01 # penalty scale
-alpha = 0.01 # time sensitivity
+m_2 = 1 # penalty scale
+alpha_2 = 0.1 # time sensitivity
 
-def penaltyFunction2(k = k, alpha = alpha, service_waiting_times = service_waiting_times, severity_cor_waiting_times = severity_cor_waiting_times):
+def penaltyFunction2(m_2 = m_2, alpha = alpha_2, service_waiting_times = service_waiting_times, severity_cor_waiting_times = severity_cor_waiting_times):
     total_penalty = 0
     for i in range(len(service_waiting_times)):
         severity = severity_cor_waiting_times[i]
         waiting_time = service_waiting_times[i]
-        total_penalty += k * (severity ** 2) * np.exp(alpha * waiting_time)
-
+        total_penalty += m_2 * (np.exp(alpha_2 * severity * waiting_time) - 1)
     return total_penalty
 
 print(penaltyFunction2())

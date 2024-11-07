@@ -8,15 +8,15 @@ arrival_times, severity_level_list, start_times, departure_times, waiting_times 
 #print(len(severity_level_list))
 #print(len(waiting_times))
 
-k = 1 # penalty scale
-alpha = 0.001 # time_sensitivity
+m_1 = 1 # penalty scale
+alpha_1 = 0.01 # time_sensitivity
 
-def penaltyFunction1(k = k, alpha = alpha, severity_level_list = severity_level_list, waiting_times = waiting_times):
+def penaltyFunction1(m_1 = m_1, alpha_1 = alpha_1, severity_level_list = severity_level_list, waiting_times = waiting_times):
     total_penalty = 0
     for i in range(len(waiting_times)):
         severity = severity_level_list[i]
         waiting_time = waiting_times[i]
-        total_penalty += k * (severity ** 2) * np.exp(alpha * waiting_time)
+        total_penalty += m_1 * (np.exp(alpha_1 * severity * waiting_time) - 1)
 
     return total_penalty
 

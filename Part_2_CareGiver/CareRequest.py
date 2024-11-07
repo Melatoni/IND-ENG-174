@@ -134,4 +134,4 @@ def simulate_service_process(request_frequency = request_frequency, capacity = c
     service_waiting_times = [x * 60 for x in service_waiting_times] # convert to minutes
     return service_waiting_times, severity_cor_waiting_times
 
-print(simulate_service_process())
+#print(simulate_service_process())

@@ -1,8 +1,8 @@
 import numpy as np
 import random
 
-time_horizon = 10
-lambda_max = 3.0
+time_horizon = 10 # If you want to modify this parameter, please simultaneously modify 'time_horizon' in Part_2_CareGiver/CareRequest.py
+lambda_max = 3.0 
 severity_levels = [1, 2, 3] # 1 - Mild; 2 - Moderate; 3 - Severe
 probabilities = [0.2, 0.5, 0.3] 
 
