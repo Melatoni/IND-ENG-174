@@ -1,10 +1,15 @@
 import numpy as np
 import random
 
+random_seed = 5 
+random.seed(random_seed)
+np.random.seed(random_seed)
+
 time_horizon = 10 # If you want to modify this parameter, please simultaneously modify 'time_horizon' in Part_2_CareGiver/CareRequest.py
 lambda_max = 3.0 
 severity_levels = [1, 2, 3] # 1 - Mild; 2 - Moderate; 3 - Severe
 probabilities = [0.2, 0.5, 0.3] 
+average_length_of_stays = [3, 7, 15] # averagely, Mild - 3 days; Moderate - 7 days; Severe - 15 days.
 
 # this function aims at characterizing the rate distribution of one day
 # number of patients per hour
@@ -50,10 +55,20 @@ def simulate_arrival_process(time_horizon = time_horizon, lambda_max = lambda_ma
     
     return arrival_times, severity_level_list
 
-#print(simulate_arrival_process())
+# print(simulate_arrival_process())
 
-#arrival_times, severity_level_list = simulate_arrival_process()
+arrival_times, severity_level_list = simulate_arrival_process()
 
+def generate_length_of_stays(severity_level_list, average_length_of_stays=average_length_of_stays):
+    length_of_stays = []
+    for severity in severity_level_list:
+        avg_length = average_length_of_stays[severity - 1]  
+        length_of_stay = np.random.exponential(avg_length)
+        length_of_stays.append(length_of_stay)
+    return length_of_stays
+
+# length_of_stays = generate_length_of_stays(severity_level_list)
+# print(length_of_stays[23])
 """
 total_1 = 0
 total_2 = 0
