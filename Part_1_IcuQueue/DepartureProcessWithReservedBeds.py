@@ -37,7 +37,7 @@ def simulate_departure_process_with_reserved_beds(arrival_times=arrival_times, s
                 earliest_available_time = heapq.heappop(current_regular_ICU_departures)
                 start_time = max(arrival_time, earliest_available_time)
             
-            departure_time = start_time + length_of_stay * 24  # 转换为小时
+            departure_time = start_time + length_of_stay * 24  
             heapq.heappush(current_regular_ICU_departures, departure_time)
 
         elif severity == 3:
